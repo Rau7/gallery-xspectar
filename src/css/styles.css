@@ -38,7 +38,6 @@ header {
 
 main {
   padding: 0rem 10rem;
-  height: 100vh;
   margin-bottom: 5rem;
 }
 
@@ -56,3 +55,134 @@ main {
   text-align: center;
   margin-top: 2.5rem;
 }
+
+/* SLIDER */
+
+main h3 {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.slide-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.slide-card img {
+  height: 575px;
+  width: 575px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 5rem;
+}
+
+.prev,
+.next {
+  margin-top: -5rem;
+}
+
+.mint-link {
+  text-align: center;
+  color: whitesmoke;
+  background-color: #549ec1;
+  font-size: 1.7rem;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s;
+}
+
+.mint-link:hover {
+  background-color: #325f74;
+}
+
+.card-info h4 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.nav-icon {
+  color: white;
+  font-size: 3rem;
+}
+
+.nav-btn {
+  background-color: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+}
+
+.nav-btn:hover .nav-icon {
+  color: #549ec1;
+}
+
+.src-rndm {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.src {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+}
+
+.src-in {
+  font-size: 1.8rem;
+  background-color: transparent;
+  border: 0px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+}
+
+.src-in:focus-visible {
+  outline: 0px transparent;
+}
+
+.src-icon {
+  font-size: 1.8rem;
+}
+
+.rndm-icon {
+  font-size: 1.8rem;
+  margin-top: 0.4rem;
+}
+
+.mint-link-btn {
+  font-size: 1.8rem;
+  background-color: #549ec1;
+  padding: 0.5rem 2rem;
+  color: whitesmoke;
+  border-radius: 10px;
+  border: 0px solid black;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.mint-link-btn:hover,
+.mint-link-btn:active {
+  background-color: #325f74;
+}
+/* END OF SLIDER */
