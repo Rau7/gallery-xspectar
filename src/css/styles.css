@@ -17,6 +17,33 @@ img {
   width: 100%;
 }
 
+/* Spinner */
+
+.spinner-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid var(--brighter-gold);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -32,7 +59,7 @@ header {
 .galleries {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5rem 5rem;
+  gap: 5rem 2.5rem;
   margin-top: 5rem;
 }
 
@@ -41,12 +68,28 @@ main {
   margin-bottom: 5rem;
 }
 
+.edit-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.gallery-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallery-card a {
   text-decoration: none;
 }
 
 .gallery-card img {
   border-radius: 10px;
+  height: auto;
+  width: 500px;
+  text-align: center;
 }
 
 .gallery-card h3 {

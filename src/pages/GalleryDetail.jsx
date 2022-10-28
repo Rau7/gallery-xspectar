@@ -1,6 +1,17 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { database } from "../firebase";
+import {
+  doc,
+  onSnapshot,
+  collection,
+  query,
+  getFirestore,
+  getDoc,
+  where,
+} from "firebase/firestore";
 import Header from "../components/Header";
-import IMAGES from "../photos";
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -8,11 +19,35 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
-function NFTGalleryEight() {
+function GalleryDetail() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [images, setImages] = useState([]);
+  const params = useParams();
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
+  const [upperGal, setUpperGal] = useState([]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const fireImages = [];
+    const galImg = collection(database, "galleryImages");
+    const id = parseInt(params.gallery_id);
+    const q = query(galImg, where("galleryId", "==", id));
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      querySnapshot.docs.forEach((d) => fireImages.push(d.data()));
+      setImages(fireImages);
+      setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    const galleries = [];
+    const galImg = collection(database, "galleries");
+    const id = parseInt(params.gallery_id);
+    const q = query(galImg, where("galleryId", "==", id));
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      querySnapshot.docs.forEach((d) => galleries.push(d.data()));
+      setUpperGal(galleries);
+    });
   }, []);
 
   const goPrev = () => {
@@ -23,8 +58,8 @@ function NFTGalleryEight() {
     }
   };
   const goNext = () => {
-    if (index === IMAGES.length - 1) {
-      setIndex(IMAGES.length - 1);
+    if (index === images.length - 1) {
+      setIndex(images.length - 1);
     } else {
       setIndex(index + 1);
     }
@@ -37,8 +72,8 @@ function NFTGalleryEight() {
     } else {
       if (parseInt(searchText) < 0) {
         setIndex(0);
-      } else if (parseInt(searchText) > IMAGES.length) {
-        setIndex(IMAGES.length - 1);
+      } else if (parseInt(searchText) > images.length) {
+        setIndex(images.length - 1);
       } else {
         setIndex(parseInt(searchText) - 1);
       }
@@ -46,7 +81,7 @@ function NFTGalleryEight() {
   };
 
   const randomizeIndex = () => {
-    const randomIndex = Math.round(Math.random() * (IMAGES.length - 0) + 0);
+    const randomIndex = Math.round(Math.random() * (images.length - 1 - 0) + 0);
     setIndex(randomIndex);
   };
 
@@ -63,19 +98,23 @@ function NFTGalleryEight() {
     }
     if (keyCode == 39) {
       let newIndex = index + 1;
-      if (newIndex > IMAGES.length - 1) {
-        setIndex(IMAGES.length - 1);
+      if (newIndex > images.length - 1) {
+        setIndex(images.length - 1);
       } else {
         setIndex(newIndex);
       }
     }
   };
 
-  return (
+  return isLoading ? (
+    <div className="spinner-container">
+      <div className="spinner"></div>
+    </div>
+  ) : (
     <>
       <Header />
       <main>
-        <h3>NFT Gallery 888</h3>
+        <h3>{upperGal[0].galleryName}</h3>
         <div className="src-rndm">
           <div className="rndm">
             <button className="mint-link-btn" onClick={() => randomizeIndex()}>
@@ -99,7 +138,10 @@ function NFTGalleryEight() {
               </button>
             </div>
             <div className="slide-card" onKeyDown={(e) => skip(e)}>
-              <img src={IMAGES[index]} alt="slide-img-1" />
+              <img
+                src={images[index].galleryImage[0].downloadURL}
+                alt="slide-img-1"
+              />
               <div className="card-info">
                 <h4>{`#${index + 1}`}</h4>
                 <a href="#" className="mint-link">
@@ -119,4 +161,4 @@ function NFTGalleryEight() {
   );
 }
 
-export default NFTGalleryEight;
+export default GalleryDetail;
