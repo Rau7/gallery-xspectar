@@ -103,7 +103,7 @@ function NFTGalleryEight() {
               <div className="card-info">
                 <h4>{`#${index + 1}`}</h4>
                 <a href="#" className="mint-link">
-                  Mint
+                  Buy
                 </a>
               </div>
             </div>
