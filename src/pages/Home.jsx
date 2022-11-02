@@ -44,7 +44,7 @@ function Home() {
           <div className="gallery-card">
             <a href="/nft_gallery_8888">
               <img src={one} alt="xspectar-gallery-one" />
-              <h3>8888 NFT Gallery</h3>
+              <h3>xSPECTAR NFT</h3>
             </a>
           </div>
           {galleries &&

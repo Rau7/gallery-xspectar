@@ -74,7 +74,7 @@ function NFTGalleryEight() {
     <>
       <Header />
       <main>
-        <h3>NFT Gallery 888</h3>
+        <h3>xSPECTAR NFT</h3>
         <div className="src-rndm">
           <div className="rndm">
             <button className="mint-link-btn" onClick={() => randomizeIndex()}>
