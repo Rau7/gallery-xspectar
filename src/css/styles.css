@@ -10,11 +10,18 @@
 body {
   background-color: #1c1c1c;
   color: whitesmoke;
-  font-family: "Ruda", sans-serif;
+  font-family: "HavelockBold", sans-serif;
 }
 
 img {
   width: 100%;
+}
+
+@font-face {
+  font-family: "HavelockBold";
+  font-style: normal;
+  font-weight: bold;
+  src: local("HavelockBold"), url(../fonts/Bold.otf) format("truetype");
 }
 
 /* Spinner */
@@ -136,7 +143,7 @@ main h3 {
 .mint-link {
   text-align: center;
   color: whitesmoke;
-  background-color: #549ec1;
+  background-color: #c6a15a;
   font-size: 1.7rem;
   border-radius: 10px;
   text-decoration: none;
@@ -145,7 +152,7 @@ main h3 {
 }
 
 .mint-link:hover {
-  background-color: #325f74;
+  background-color: #4f4024;
 }
 
 .card-info h4 {
@@ -172,7 +179,7 @@ main h3 {
 }
 
 .nav-btn:hover .nav-icon {
-  color: #549ec1;
+  color: #c6a15a;
 }
 
 .src-rndm {
@@ -215,18 +222,20 @@ main h3 {
 }
 
 .mint-link-btn {
+  font-family: "HavelockBold", sans-serif;
   font-size: 1.8rem;
-  background-color: #549ec1;
+  background-color: #c6a15a;
   padding: 0.5rem 2rem;
   color: whitesmoke;
   border-radius: 10px;
   border: 0px solid black;
   transition: all 0.3s;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .mint-link-btn:hover,
 .mint-link-btn:active {
-  background-color: #325f74;
+  background-color: #4f4024;
 }
 /* END OF SLIDER */
