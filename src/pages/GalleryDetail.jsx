@@ -87,7 +87,6 @@ function GalleryDetail() {
 
   const skip = (e) => {
     const keyCode = e.keyCode;
-    console.log(e);
     if (keyCode == 37) {
       let newIndex = index - 1;
       if (newIndex < 0) {
@@ -137,14 +136,18 @@ function GalleryDetail() {
                 <FaArrowLeft className="nav-icon" />
               </button>
             </div>
-            <div className="slide-card" onKeyDown={(e) => skip(e)}>
+            <div className="slide-card" tabIndex="0" onKeyDown={(e) => skip(e)}>
               <img
                 src={images[index].galleryImage[0].downloadURL}
                 alt="slide-img-1"
               />
               <div className="card-info">
                 <h4>{`#${index + 1}`}</h4>
-                <a href="#" className="mint-link">
+                <a
+                  href={images[index].galleryImageLink}
+                  target="_blank"
+                  className="mint-link"
+                >
                   Buy
                 </a>
               </div>

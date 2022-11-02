@@ -238,4 +238,8 @@ main h3 {
 .mint-link-btn:active {
   background-color: #4f4024;
 }
+
+.slide-card:focus-visible {
+  outline: 0px solid blue;
+}
 /* END OF SLIDER */

@@ -52,7 +52,6 @@ function NFTGalleryEight() {
 
   const skip = (e) => {
     const keyCode = e.keyCode;
-    console.log(e);
     if (keyCode == 37) {
       let newIndex = index - 1;
       if (newIndex < 0) {
@@ -98,7 +97,7 @@ function NFTGalleryEight() {
                 <FaArrowLeft className="nav-icon" />
               </button>
             </div>
-            <div className="slide-card" onKeyDown={(e) => skip(e)}>
+            <div className="slide-card" tabIndex="0" onKeyDown={(e) => skip(e)}>
               <img src={IMAGES[index]} alt="slide-img-1" />
               <div className="card-info">
                 <h4>{`#${index + 1}`}</h4>
